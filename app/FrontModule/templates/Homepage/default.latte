@@ -1,3 +1,59 @@
 {block #content}
+	<header>
+		<div class="container">
+			<div class="header-text">
+				<h1>Lucie Svěcená</h1>
+				<p>Účastnice LOH 2016</p>
+			</div>
+		</div>
+	</header>
 
+	<section class="lectures" id="lekce">
+		<h2>Služby</h2>
+		<div class="lecture">
+			<img class="img-fluid" src="{$basePath}/dist/img/lectures.jpg" alt="Lekce plavání">
+			<h3>Individuální lekce plavání</h3>
+			<div class="text">
+				{box service}
+			</div>
+		</div>
+	</section>
+
+	<section class="about" id="o-mne">
+		<div class="container about-flex">
+			<img src="{$basePath}/dist/img/about.jpg" alt="Lucie Svěcená">
+			<div class="about-text">
+				<h2>O mně</h2>
+				{box about}
+			</div>
+		</div>
+	</section>
+
+	<section class="gallery" id="galerie">
+		<h2>Galerie</h2>
+	</section>
+
+	<section class="news" id="aktuality">
+		<div class="container">
+			<h2>Aktuality</h2>
+
+		</div>
+	</section>
+
+	<section class="partners" id="partneri">
+	<div class="container">
+		<h2>Partneři</h2>
+		<div class="partners-grid">
+			<a href="https://www.nutrend.cz/"><img src="{$basePath}/dist/img/partners/nutrend.png" alt="Nutrend"></a>
+			<a href="https://2xu.shop/"><img src="{$basePath}/dist/img/partners/logo2xu.png" alt="2XU"></a>
+			<a href="https://www.underarmour.cz/"><img class="under-armor" src="{$basePath}/dist/img/partners/under_armor.png" alt="Under Armor"></a>
+			<a href="#"><img class="ohana" src="{$basePath}/dist/img/partners/ohana.png" alt="Ohana"></a>
+		</div>
+	</div>
+	</section>
+
+	<section class="contact" id="kontakt">
+		<h2>Kontakt</h2>
+
+	</section>
 {/block}

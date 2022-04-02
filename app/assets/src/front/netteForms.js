@@ -293,7 +293,7 @@
 				const errorText = document.createElement("div");
 				errorText.innerText = message;
 				errorText.classList.add("invalid-feedback");
-				errorText.classList.add("font-weight-bold");
+				errorText.classList.add("fonts-weight-bold");
 				elem.classList.add("is-invalid");
 
 				if (elem.parentNode.classList.contains("input-group")) {

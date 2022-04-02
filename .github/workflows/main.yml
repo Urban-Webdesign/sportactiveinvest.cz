@@ -1,0 +1,47 @@
+on:
+  pull_request:
+    branches:
+      - master
+name: 🚀 Deploy website
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2.3.2
+
+      - name: 🔑 Setup SSH private repositories access
+        uses: webfactory/ssh-agent@v0.4.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: 🎶 Composer install
+        if: steps.composer-cache.outputs.cache-hit != 'true'
+        run: composer install --no-interaction --no-progress
+
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      - name: 🔗 NPM install
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm install
+
+      - name: 🔨 Build project
+        run: npm run build
+
+      - name: 📂 Deploy to server
+        uses: easingthemes/ssh-deploy@v2.1.5
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.HOSTING_SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+          TARGET: /www/luciesvecena.cz/
+
+      - name: 🗑️ Remove Cache
+        uses: JesseTG/rm@v1.0.2
+        with:
+          path: /luciesvecena.cz/temp/cache

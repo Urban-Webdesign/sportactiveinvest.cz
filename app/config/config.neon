@@ -1,3 +1,6 @@
+session:
+	autoStart: true
+
 php:
 	date.timezone: Europe/Prague
 	output_buffering: 4096
@@ -9,7 +12,11 @@ application:
 
 services:
 	router: App\RouterFactory::createRouter()
+	repository: App\Service\ProjectModelRepository
 
 parameters:
 	customTemplatesDir: %appDir%/FrontModule/templates/
 
+extensions:
+    dateFilterExtension: h4kuna\DateFilter\DI\DateFilterExtension
+    recaptcha: Contributte\ReCaptcha\DI\ReCaptchaExtension
