@@ -1,0 +1,19 @@
+includes:
+	- ../vendor/phpstan/phpstan/conf/bleedingEdge.neon
+
+parameters:
+	tmpDir: ../var/tools/PHPStan
+
+	exceptions:
+		check:
+			missingCheckedExceptionInThrows: true
+			tooWideThrowType: true
+		checkedExceptionClasses:
+			- Orisai\Exceptions\Check\CheckedException
+
+	checkMissingCallableSignature: true
+	checkTooWideReturnTypesInProtectedAndPublicMethods: true
+	checkInternalClassCaseSensitivity: true
+
+	bootstrapFiles:
+		- phpstan-autoloader.php

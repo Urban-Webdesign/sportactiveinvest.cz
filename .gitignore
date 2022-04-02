@@ -1,0 +1,20 @@
+# IDE
+/.idea
+
+# Packages
+/node_modules
+/vendor
+
+# Data
+/www/upload/*
+
+# Generated
+/www/dist/*
+/var
+/temp/*
+/log/*
+
+# Local
+/app/config/server/local.neon
+/app/config/google_service_account.json
+/.env
