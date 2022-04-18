@@ -1,25 +1,23 @@
 {block #content}
 	<header id="uvod">
         <div class="header-text container-fluid">
-{*			Ukáži Vám, jak si zamilovat*}
-            <span>Objevte krásy</span>
-            <h1 class="loading wave">Plavání</h1>
+            <h1>Sport Active Invest</h1>
         </div>
-        <a href="#lekce" class="scroll-down scroll">
-          Nabídka lekcí
+        <a href="#sluzby" class="scroll-down scroll">
+          Chci tréninkový plán!
           <svg id="svg-arrow-down" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 22 35" style="enable-background:new 0 0 22 35;" xml:space="preserve">
             <polygon class="arrow" points="20.58,11.584 12.004,20.158 12.004,0 9.996,0 9.996,20.158 1.42,11.584 0,13.004 11,24 22,13.004 "></polygon>
           </svg>
         </a>
 	</header>
 
-	<section class="lectures" id="lekce">
+	<section class="lectures" id="sluzby">
 		<div class="section-heading">
-			<span>Služby</span>
-			<h2>Individuální lekce plavání</h2>
+			<span>Tréninkové plány a sportovní kempy</span>
+			<h2>Naše služby</h2>
 		</div>
 		<div class="lecture container">
-			<img class="img-fluid" src="{$basePath}/dist/img/lectures.jpg" alt="Lekce plavání">
+			<img class="img-fluid" src="{$basePath}/dist/img/img02.jpeg" alt="Lekce plavání">
 			<div class="text">
 				{box service}
 				<a href="#kontakt" class="btn btn-success btn-lg scroll mt-3 mr-3">Objednat lekci!</a>
@@ -28,147 +26,147 @@
 		</div>
 	</section>
 
-	<section class="about" id="o-mne">
+	<section class="about" id="o-nas">
 		<div class="container about-flex">
-			<img src="{$basePath}/dist/img/about.jpg" alt="Lucie Svěcená">
+			<img src="{$basePath}/dist/img/img04.jpeg" alt="Lucie Svěcená">
 			<div class="about-text">
 				<div class="section-heading">
-					<span>O mně</span>
-					<h2>Ahoj!<br>Já jsem Lucka.</h2>
+					<span>O nás</span>
+					<h2>Náš tým odborníků</h2>
 				</div>
 				{box about}
 			</div>
 		</div>
-		<div class="container achievements">
-			<div class="achievement">
-				73
-				<span>Titulů mistryně ČR</span>
-			</div>
-			<div class="achievement">
-				🥈🥈🥈🥈
-				<span>Medaile z mistrovství Evropy</span>
-			</div>
-			<div class="achievement">
-				🥉
-				<span>Medaile z mistrovství světa</span>
-			</div>
-			<div class="achievement">
-				0:58.54
-				<span>Český rekord na 100M<br>(50m bazén)</span>
-			</div>
-		</div>
+{*		<div class="container achievements">*}
+{*			<div class="achievement">*}
+{*				73*}
+{*				<span>Titulů mistryně ČR</span>*}
+{*			</div>*}
+{*			<div class="achievement">*}
+{*				🥈🥈🥈🥈*}
+{*				<span>Medaile z mistrovství Evropy</span>*}
+{*			</div>*}
+{*			<div class="achievement">*}
+{*				🥉*}
+{*				<span>Medaile z mistrovství světa</span>*}
+{*			</div>*}
+{*			<div class="achievement">*}
+{*				0:58.54*}
+{*				<span>Český rekord na 100M<br>(50m bazén)</span>*}
+{*			</div>*}
+{*		</div>*}
 	</section>
 
-	<section class="news" id="aktuality">
-		<div class="container-fluid">
-			<div class="container">
-				<div class="section-heading">
-					<span>Aktuality</span>
-					<h2>Nejnovější informace</h2>
-				</div>
-				{if count($news) > 0}
-					<div class="articles-row">
-					{foreach $news as $new}
-						<div class="new article">
-							<img n:ifset="$article->cover" src="{$basePath}/upload/news/{$article->id}/{$article->cover}" class="img-fluid" alt="{$article->title}">
-							<div class="text">
-								<time datetime="{$new->created|date:"Y-m-d"}">{$new->created|dayMonth}</time>
-								<a n:href="New:show $new->slug">
-									<h3>{$new->title}</h3>
-								</a>
-								{if $new->perex}
-								   {$new->perex|noescape|truncate:300}
-								{elseif $new->content}
-								   {$new->content|noescape|truncate:300}
-								{/if}
-							</div>
-						</div>
-					{/foreach}
-					</div>
-					<div class="container text-center">
-						<a n:href="New:default" class="btn btn-primary mt-5">Archiv aktualit</a>
-					</div>
-				{else}
-					<div class="alert alert-default">Aktuálně nejsou k dispozici žádné aktuality.</div>
-				{/if}
-			</div>
-		</div>
-	</section>
+{*	<section class="news" id="aktuality">*}
+{*		<div class="container-fluid">*}
+{*			<div class="container">*}
+{*				<div class="section-heading">*}
+{*					<span>Aktuality</span>*}
+{*					<h2>Nejnovější informace</h2>*}
+{*				</div>*}
+{*				{if count($news) > 0}*}
+{*					<div class="articles-row">*}
+{*					{foreach $news as $new}*}
+{*						<div class="new article">*}
+{*							<img n:ifset="$article->cover" src="{$basePath}/upload/news/{$article->id}/{$article->cover}" class="img-fluid" alt="{$article->title}">*}
+{*							<div class="text">*}
+{*								<time datetime="{$new->created|date:"Y-m-d"}">{$new->created|dayMonth}</time>*}
+{*								<a n:href="New:show $new->slug">*}
+{*									<h3>{$new->title}</h3>*}
+{*								</a>*}
+{*								{if $new->perex}*}
+{*								   {$new->perex|noescape|truncate:300}*}
+{*								{elseif $new->content}*}
+{*								   {$new->content|noescape|truncate:300}*}
+{*								{/if}*}
+{*							</div>*}
+{*						</div>*}
+{*					{/foreach}*}
+{*					</div>*}
+{*					<div class="container text-center">*}
+{*						<a n:href="New:default" class="btn btn-primary mt-5">Archiv aktualit</a>*}
+{*					</div>*}
+{*				{else}*}
+{*					<div class="alert alert-default">Aktuálně nejsou k dispozici žádné aktuality.</div>*}
+{*				{/if}*}
+{*			</div>*}
+{*		</div>*}
+{*	</section>*}
 
-	<section class="voucher" id="darkovy-poukaz">
-		<div class="voucher-text">
-			<div class="section-heading">
-				<span>Překvapte své blízké</span>
-				<h2>Dárkový poukaz</h2>
-			</div>
-			{box voucher}
-		</div>
-		<div class="container voucher-grid">
-			<div class="voucher-preview">
-				<img src="{$basePath}/dist/img/voucher/voucher_preview.jpg" alt="Dárkový poukaz">
-				<small>Náhled dárkového poukazu</small>
-			</div>
-			<div class="voucher-form">
-				<h3 class="mb-4">Objednat dárkový poukaz</h3>
+{*	<section class="voucher" id="darkovy-poukaz">*}
+{*		<div class="voucher-text">*}
+{*			<div class="section-heading">*}
+{*				<span>Překvapte své blízké</span>*}
+{*				<h2>Dárkový poukaz</h2>*}
+{*			</div>*}
+{*			{box voucher}*}
+{*		</div>*}
+{*		<div class="container voucher-grid">*}
+{*			<div class="voucher-preview">*}
+{*				<img src="{$basePath}/dist/img/voucher/voucher_preview.jpg" alt="Dárkový poukaz">*}
+{*				<small>Náhled dárkového poukazu</small>*}
+{*			</div>*}
+{*			<div class="voucher-form">*}
+{*				<h3 class="mb-4">Objednat dárkový poukaz</h3>*}
 
-				{snippet voucherFlashes}
-					{foreach $flashes as $flash}
-						<div class="alert alert-{$flash->type} alert-dismissible fade show" style="max-width: 500px" role="alert">
-							{$flash->message}
-						</div>
-					{/foreach}
-				{/snippet}
-				{snippet voucherForm}
-					{form voucherForm, class => 'row'}
-						<div class="col-lg-12">
-							<div class="form-group">
-								{label name}{/label}
-								{input name class => 'form-control'}
-								<small>Zadejte jméno a příjmení vlastníka poukazu.</small>
-							</div>
-						</div>
+{*				{snippet voucherFlashes}*}
+{*					{foreach $flashes as $flash}*}
+{*						<div class="alert alert-{$flash->type} alert-dismissible fade show" style="max-width: 500px" role="alert">*}
+{*							{$flash->message}*}
+{*						</div>*}
+{*					{/foreach}*}
+{*				{/snippet}*}
+{*				{snippet voucherForm}*}
+{*					{form voucherForm, class => 'row'}*}
+{*						<div class="col-lg-12">*}
+{*							<div class="form-group">*}
+{*								{label name}{/label}*}
+{*								{input name class => 'form-control'}*}
+{*								<small>Zadejte jméno a příjmení vlastníka poukazu.</small>*}
+{*							</div>*}
+{*						</div>*}
 
-						<div class="col-lg-12">
-							<div class="form-group">
-								{label lessons}{/label}
-								{input lessons class => 'form-control'}
-								<small>Cena 600Kč/lekce. Maximální počet lekcí = 10</small>
-							</div>
-						</div>
+{*						<div class="col-lg-12">*}
+{*							<div class="form-group">*}
+{*								{label lessons}{/label}*}
+{*								{input lessons class => 'form-control'}*}
+{*								<small>Cena 600Kč/lekce. Maximální počet lekcí = 10</small>*}
+{*							</div>*}
+{*						</div>*}
 
-						<div class="col-lg-12">
-							<div class="form-group">
-								{label email}{/label}
-								{input email class => 'form-control'}
-								<small>Na tuto adresu Vám bude zaslán poukaz i informace k platbě.</small>
-							</div>
-						</div>
+{*						<div class="col-lg-12">*}
+{*							<div class="form-group">*}
+{*								{label email}{/label}*}
+{*								{input email class => 'form-control'}*}
+{*								<small>Na tuto adresu Vám bude zaslán poukaz i informace k platbě.</small>*}
+{*							</div>*}
+{*						</div>*}
 
-						<div class="col-lg-6">
-							<div class="form-group d-inline-flex align-items-center">
-								<div class="spinner-border spinner-voucher mr-3" style="display: none;" role="status">
-									<span class="sr-only">Loading...</span>
-								</div>
-								{input submit class => 'btn btn-success btn-lg ajax submit-voucherForm'}
-							</div>
-						</div>
-					{/form}
-				{/snippet}
-			</div>
-		</div>
-	</section>
+{*						<div class="col-lg-6">*}
+{*							<div class="form-group d-inline-flex align-items-center">*}
+{*								<div class="spinner-border spinner-voucher mr-3" style="display: none;" role="status">*}
+{*									<span class="sr-only">Loading...</span>*}
+{*								</div>*}
+{*								{input submit class => 'btn btn-success btn-lg ajax submit-voucherForm'}*}
+{*							</div>*}
+{*						</div>*}
+{*					{/form}*}
+{*				{/snippet}*}
+{*			</div>*}
+{*		</div>*}
+{*	</section>*}
 
 	<section class="contact" id="kontakt">
 		<div class="container">
 			<div class="section-heading">
 				<span>Kontaktní informace</span>
-				<h2>Ozvěte se mi!</h2>
+				<h2>Ozvěte se nám!</h2>
 			</div>
 			<div class="contact-grid">
 				<ul class="contact-list">
 					<li n:if="$vars->phone"><a href="tel:{$vars->phone}"><i class="fa-solid fa-phone"></i> {$vars->phone}</a></li>
 					<li><a n:if="$vars->email" href="mailto:{$vars->email}"><i class="fa-solid fa-at"></i> {$vars->email}</a></li>
-					<h5 class="pt-3 my-3">Jsem na Instagramu i Facebooku!</h5>
+					<h5 class="pt-3 my-3">Jsme na Instagramu i Facebooku!</h5>
 					<li><a n:if="$vars->instagram" href="{$vars->instagram}"><i class="fa-brands fa-instagram"></i> {$vars->instagram}</a></li>
 					<li><a n:if="$vars->facebook" href="{$vars->facebook}"><i class="fa-brands fa-facebook"></i> {$vars->facebook}</a></li>
 				</ul>
@@ -223,45 +221,46 @@
 	</section>
 
 
-	<section class="partners" id="partneri">
-		<div class="section-heading">
-			<span>Partneři</span>
-			<h2>Kdo mě podporuje</h2>
-		</div>
-		<div class="partners-grid">
-			<a href="https://www.nutrend.cz/"><img src="{$basePath}/dist/img/partners/nutrend.png" alt="Nutrend"></a>
-			<a href="https://2xu.shop/"><img src="{$basePath}/dist/img/partners/logo2xu.png" alt="2XU"></a>
-			<a href="https://www.underarmour.cz/"><img class="under-armor" src="{$basePath}/dist/img/partners/under_armor.png" alt="Under Armor"></a>
-			<a href="#"><img class="ohana" src="{$basePath}/dist/img/partners/ohana.png" alt="Ohana"></a>
-		</div>
-	</section>
+{*	<section class="partners" id="partneri">*}
+{*		<div class="section-heading">*}
+{*			<span>Partneři</span>*}
+{*			<h2>Kdo mě podporuje</h2>*}
+{*		</div>*}
+{*		<div class="partners-grid">*}
+{*			<a href="https://www.nutrend.cz/"><img src="{$basePath}/dist/img/partners/nutrend.png" alt="Nutrend"></a>*}
+{*			<a href="https://2xu.shop/"><img src="{$basePath}/dist/img/partners/logo2xu.png" alt="2XU"></a>*}
+{*			<a href="https://www.underarmour.cz/"><img class="under-armor" src="{$basePath}/dist/img/partners/under_armor.png" alt="Under Armor"></a>*}
+{*			<a href="#"><img class="ohana" src="{$basePath}/dist/img/partners/ohana.png" alt="Ohana"></a>*}
+{*		</div>*}
+{*	</section>*}
 {/block}
 
 {block #scripts}
 	<script type="application/javascript">
-		var voucherForm = document.querySelector('#frm-voucherForm');
 		var contactForm = document.querySelector('#frm-contactForm');
-		var submitVoucher = voucherForm.querySelector('.submit-voucherForm');
 		var submitContact = contactForm.querySelector('.submit-contactForm');
-		var spinnerVoucher = voucherForm.querySelector('.spinner-voucher');
 		var spinnerContact = contactForm.querySelector('.spinner-contact');
 
-		submitVoucher.addEventListener('click', () => {
-			submitVoucher.disabled = true;
-			spinnerVoucher.style.display = 'block';
-			setTimeout(() => {
-				submitVoucher.disabled = false;
-				spinnerVoucher.style.display = 'none';
-			}, 3000);
-		});
-
-		submitContact.addEventListener('click', () => {
-			submitContact.disabled = true;
-			spinnerContact.style.display = 'block';
-			setTimeout(() => {
-				submitContact.disabled = false;
-				spinnerContact.style.display = 'none';
-			}, 3000);
-		});
+        submitContact.addEventListener('click', () => {
+            submitContact.disabled = true;
+            spinnerContact.style.display = 'block';
+            setTimeout(() => {
+                submitContact.disabled = false;
+                spinnerContact.style.display = 'none';
+            }, 3000);
+        });
+        //
+		// var voucherForm = document.querySelector('#frm-voucherForm');
+		// var submitVoucher = voucherForm.querySelector('.submit-voucherForm');
+		// var spinnerVoucher = voucherForm.querySelector('.spinner-voucher');
+        //
+		// submitVoucher.addEventListener('click', () => {
+		// 	submitVoucher.disabled = true;
+		// 	spinnerVoucher.style.display = 'block';
+		// 	setTimeout(() => {
+		// 		submitVoucher.disabled = false;
+		// 		spinnerVoucher.style.display = 'none';
+		// 	}, 3000);
+		// });
 	</script>
 {/block}

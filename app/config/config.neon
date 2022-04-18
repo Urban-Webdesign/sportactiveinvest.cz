@@ -20,4 +20,3 @@ parameters:
 
 extensions:
     dateFilterExtension: h4kuna\DateFilter\DI\DateFilterExtension
-    recaptcha: Contributte\ReCaptcha\DI\ReCaptchaExtension
