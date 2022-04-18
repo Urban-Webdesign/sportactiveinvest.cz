@@ -11,7 +11,7 @@ services:
       - nginx_proxy_network
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: luciesvecena
+      MYSQL_DATABASE: sportactiveinvest
     volumes:
       - .data/mysql:/var/lib/mysql
 
@@ -24,7 +24,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: root
       MYSQL_PASSWORD: root
-      VIRTUAL_HOST: dbluciesvecena.localhost
+      VIRTUAL_HOST: dbsportactiveinvest.localhost
 
   php:
     image: php74apache
@@ -37,7 +37,7 @@ services:
       - ./.docker/apache/000-default.conf:/etc/apache2/sites-enabled/000-default.conf
     environment:
       NETTE_DEBUG_SECRET: debug
-      VIRTUAL_HOST: luciesvecena.localhost
+      VIRTUAL_HOST: sportactiveinvest.localhost
       VIRTUAL_PORT: 80
-      LETSENCRYPT_HOST: luciesvecena.localhost
+      LETSENCRYPT_HOST: sportactiveinvest.localhost
       LETSENCRYPT_EMAIL: info@filipurban.cz
