@@ -77,11 +77,13 @@ p {
 }
 
 section {
-	padding: 4rem 0;
+	padding: 5rem 0;
 }
 
 .section-heading {
-	span {
+	margin-bottom: 2rem;
+
+	.heading-span {
 		display: block;
 		text-align: center;
 		opacity: .4;
@@ -91,10 +93,21 @@ section {
 		font-family: 'Inter', sans-serif;
 		padding: .3rem;
 	}
+
+	p {
+		font-size: 1.2rem;
+		text-align: center;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	h2 {
+		margin-bottom: 1rem;
+	}
 }
 
 h1 {
-	font-size: 4rem;
+	font-size: 3.8rem;
 }
 
 h2 {
@@ -111,7 +124,6 @@ h3 {
 .btn {
 	text-transform: uppercase;
 	font-weight: 700;
-	font-size: .9rem;
 }
 
 .btn-lg {
@@ -136,11 +148,8 @@ h3 {
 
 	.navbar-brand {
 		padding: .5rem;
-		svg {
-			height: 50px;
-			transition: all .25s ease-in-out;
-			fill: $white;
-		}
+		font-weight: 700;
+		font-size: 1.4rem;
 	}
 
 	.container {
@@ -229,7 +238,7 @@ h3 {
 	display: block;
 	background: $primary;
 	width: 100vw;
-	height: 200px;
+	height: 400px;
 
 	&:before {
 		content: '';
@@ -239,17 +248,24 @@ h3 {
 		opacity: 0.2;
 		width: 100vw;
 		height: 100%;
-		background: url("../../img/img01.jpeg") 100% 100%;
+		background-image: url("../../img/img01.jpeg");
 		background-size: cover;
+		background-attachment: fixed;
+		background-position: center top 100%;
+		background-repeat: no-repeat;
 	}
 }
+
 
 // HEADER
 header {
 	height: 100vh;
 	position: relative;
-	background: url("../../img/img01.jpeg") center no-repeat;
+	background-image: url("../../img/img01.jpeg");
 	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
 	z-index: 0;
 
 	&::before {
@@ -258,7 +274,7 @@ header {
 		z-index: 100;
 		width: 100vw;
 		height: 100vh;
-		background: linear-gradient(to bottom right, rgba($primary, 0.9), rgba($primary, 0.2));
+		background: linear-gradient(to bottom right, rgba($primary, 0.8), rgba($secondary, 0.3));
 	}
 
 	.header-text {
@@ -279,7 +295,9 @@ header {
 
 		h1 {
 			text-align: center;
-			font-size: 4rem;
+			font-size: 3rem;
+			font-weight: 700;
+			text-transform: uppercase;
 		}
 	}
 }
@@ -287,13 +305,15 @@ header {
 // ABOUT
 .about {
 	.about-flex {
+		margin-bottom: 5rem;
 		display: flex;
-		flex-direction: column-reverse;
+		flex-direction: column;
 		gap: 3rem;
 
 		img {
 			max-width: 100%;
-			max-height: 500px;
+			width: 400px;
+			max-height: 400px;
 			object-fit: cover;
 		}
 
@@ -301,37 +321,20 @@ header {
 			font-size: 1.1rem;
 		}
 	}
+}
 
-	.achievements {
-		display: grid;
-		padding: 4rem 0;
-		grid-template-columns: 1fr;
-		grid-gap: 3.5rem;
-		margin-top: 4rem;
-		background: rgba($secondary, .25);
-
-		.achievement {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			font-size: 3rem;
-			gap: .3rem;
-			font-weight: 700;
-			border-radius: 1rem;
-
-			span {
-				font-weight: 400;
-				font-size: 1rem;
-				text-transform: uppercase;
-				text-align: center;
-			}
-		}
+.plans, .camps {
+	h3 {
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: .05rem;
+		text-align: center;
 	}
 }
 
-// LEKCE
-.lectures {
+
+// TRENINKOVE PLANY
+.plans {
 	background: $gray-100;
 	padding-left: 1rem;
 	padding-right: 1rem;
@@ -340,20 +343,40 @@ header {
 	flex-direction: column;
 	overflow: hidden;
 
+	.plans-img {
+		display: none;
+	}
 
-	.lecture {
-		border-radius: 3rem 0 3rem 0;
+	.plans-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 3rem;
+
+		h5 {
+			text-align: center;
+			font-weight: 700;
+		}
+
+		ul {
+			padding-left: unset;
+			list-style-type: none;
+			text-align: center;
+
+			li {
+				margin-bottom: .5rem;
+				padding: .7rem 1rem;
+				color: $white;
+				background: rgba($primary, .8);
+			}
+		}
+	}
+
+	.plan {
 		padding: 1.5rem;
-		background: linear-gradient(to bottom right, $primary, lighten($primary, 10%));
-		color: $white;
 		display: grid;
 		grid-template-columns: 1fr;
 		font-size: 1.1rem;
 		grid-gap: 2rem;
-
-		img {
-			border-radius: 3rem 0 3rem 0;
-		}
 
 		a {
 			color: $white;
@@ -365,148 +388,89 @@ header {
 	}
 }
 
-// AKTUALITY
-.news {
+// SPORTOVNI KEMPY
+.camps {
+	padding-top: 0;
 
-	.articles-row {
+	.camps-header {
+		/* The image used */
+		background-image: url("../../img/img05.jpeg");
+
+		/* Set a specific height */
+		min-height: 500px;
+
+		/* Create the parallax scrolling effect */
+		background-attachment: fixed;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		margin-bottom: 5rem;
+	}
+
+	.camps-grid {
 		display: grid;
 		grid-template-columns: 1fr;
 		grid-gap: 3rem;
-	}
-
-	.new {
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-		background: $white;
-		padding: 1rem;
-		max-width: 1000px;
-		align-items: flex-start;
-
-		.text {
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			justify-content: flex-start;
-		}
-
-		img {
-			width: 100%;
-			max-height: 300px;
-			object-fit: cover;
-		}
-
-		time {
-			text-transform: lowercase;
-			background: rgba($secondary, .5);
-			padding: .5rem;
-			margin-bottom: 1rem;
-		}
-	}
-
-	.alert {
-		text-align: center;
-		background: $gray-200;
-		padding: 1.5rem;
-	}
-}
-
-.news-page {
-	.new {
-		margin-bottom: 2.5rem;
-	}
-}
-
-article {
-	max-width: 800px;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 2rem;
-
-	time {
-		text-transform: lowercase;
-		background: rgba($secondary, .5);
-		padding: 1rem;
-	}
-}
-
-
-// VOUCHER
-.voucher {
-	.voucher-text {
-		margin: 0 auto;
-		padding-bottom: 4rem;
-		font-size: 1.1rem;
-		text-align: center;
-		max-width: 600px;
-	}
-
-	.voucher-grid {
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-gap: 4rem;
-
-		.voucher-form {
-			background-color: $white;
-			padding: 1.5rem;
-			color: $primary;
-			text-align: center;
-
-			h3 {
-				font-weight: 700;
-			}
-
-			label {
-				font-weight: 500;
-			}
-
-			small {
-				color: $gray-700;
-			}
-
-			input[name=lessons] {
-				max-width: 300px;
-			}
-
-			input[name=name] {
-				max-width: 450px;
-			}
-		}
-
-		img {
-			max-width: 100%;
-		}
-	}
-}
-
-
-// PARTNERS
-.partners {
-
-	.partners-grid {
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-gap: 4rem;
 
 		a {
+			background-repeat: no-repeat;
+			background-size: cover;
+			position: relative;
+			width: 100%;
+			height: 300px;
 			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-		img {
-			max-width: 80%;
-			opacity: .8;
-			transition: .2s ease-in-out;
+			justify-content: flex-end;
+			align-items: flex-end;
+			cursor: pointer;
+			text-decoration-color: $secondary;
+
+			h3 {
+				z-index: 10;
+				padding: 2rem;
+				background: rgba($primary, 1);
+				color: $white;
+				margin-bottom: 1rem;
+			}
+
+			&::before {
+				z-index: 1;
+				position: absolute;
+				content: '';
+				width: 100%;
+				height: 100%;
+				background: rgba($secondary, .1);
+				transition: all .5s ease-in-out;
+			}
 
 			&:hover {
-				opacity: 1;
+				&::before {
+					background: rgba($secondary, .4);
+				}
 			}
 		}
-		.under-armor {max-width: 60%;}
-		.ohana {max-width: 70%;}
+
+		.running-camps {
+			background-image: url("../../img/camps/running.jpeg");
+		}
+		.triathlon-camps {
+			background-image: url("../../img/camps/triathlon.jpeg");
+		}
+		.cycling-camps {
+			background-image: url("../../img/camps/cycling.jpeg");
+		}
+	}
+
+	.camps-text {
+		text-align: center;
+		margin-top: 3rem;
+
+		p {
+			font-size: 1.1rem;
+			line-height: 150%;
+		}
 	}
 }
+
 
 // KONTAKT
 .contact {
@@ -554,7 +518,7 @@ article {
 				}
 
 				i {
-					font-size: 1.5rem;
+					font-size: 2rem;
 					margin-right: 1rem;
 				}
 			}
@@ -572,16 +536,15 @@ article {
 	z-index: 1000;
 	background: $white;
 	border-radius: 50%;
-	transition: bottom .3s, box-shadow 0s ease-in-out;
+	transition: box-shadow .05s ease-in-out;
 
 	i {
 		color: $primary;
 		font-size: 2.5rem;
-		transition: .15s ease-in-out;
+		transition: .05s ease-in-out;
 	}
 
 	&:hover {
-		bottom: 5.3rem;
 		box-shadow: 2px 2px 5px 2px rgba($gray-600, 0.2);
 
 		i {
@@ -589,6 +552,7 @@ article {
 		}
 	}
 }
+
 
 // FOOTER
 footer.main-footer {
@@ -620,6 +584,7 @@ footer.main-footer {
 	}
 }
 
+
 // GDPR
 .gdpr {
 	width: calc(100% - 2rem);
@@ -642,6 +607,7 @@ footer.main-footer {
 		font-size: 1.5rem;
 	}
 }
+
 
 // scroll down
 .scroll-down {
