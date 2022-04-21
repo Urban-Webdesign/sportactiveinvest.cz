@@ -3,8 +3,6 @@
 namespace App\FrontModule\Presenters;
 
 use Contributte\PdfResponse\PdfResponse;
-use K2D\Gallery\Models\GalleryModel;
-use K2D\News\Models\NewModel;
 use Latte\Engine;
 use Nette\Application\UI\Form;
 use Nette\Mail\Message;
@@ -16,18 +14,22 @@ use Nette\Utils\Strings;
 
 class HomepagePresenter extends BasePresenter
 {
-
-    /** @inject */
-    public GalleryModel $galleryModel;
-
-    /** @inject */
-    public NewModel $newModel;
-
 	public function renderDefault(): void
 	{
-        $this->template->news = $this->newModel->getPublicNews('cs')->limit(2);
-        $this->template->gallery = $this->galleryModel->getGallery(1);
 	}
+
+    public function renderRunningCamps(): void
+    {
+    }
+
+    public function renderTriathlonCamps(): void
+    {
+    }
+
+    public function renderCyclingCamps(): void
+    {
+    }
+
 
     public function renderTemplate(): void
     {
