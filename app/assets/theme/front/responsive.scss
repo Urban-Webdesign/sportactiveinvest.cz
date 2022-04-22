@@ -16,37 +16,17 @@
 				font-size: 1.2rem;
 			}
 		}
-
-		.achievements {
-			align-items: start;
-			grid-template-columns: 1fr 1fr;
-			padding: 4rem 2rem;
-		}
-	}
-
-	.partners {
-		.partners-grid {
-			grid-template-columns: 1fr 1fr;
-		}
 	}
 }
 
 @include media-breakpoint-up(md) {
-	.news {
-		.articles-row {
-			grid-template-columns: 1fr 1fr;
-		}
-	}
+
 }
 
 @include media-breakpoint-up(lg) {
 
 	section {
-		padding: 8rem 0;
-	}
-
-	.new-page, .news-page {
-		padding: 4rem 0;
+		padding: 6rem 0;
 	}
 
 	.navbar {
@@ -63,7 +43,7 @@
 			font-size: 1.1rem;
 			margin-bottom: unset;
 			padding: 1.5rem;
-			margin-left: 1.5rem;
+			margin-left: .5rem;
 		}
 
 		.navigation-toggler {
@@ -102,7 +82,7 @@
 			}
 
 			h1 {
-				font-size: 7.5rem;
+				font-size: 5.5rem;
 			}
 		}
 	}
@@ -137,22 +117,12 @@
 			margin: 3rem 0;
 			font-size: 1.1rem;
 
+			.running, .triathlon, .cycling {
+				padding: 3rem;
+			}
+
 			h3 {
 				margin-bottom: 1.5rem;
-			}
-
-			h5 {
-				text-align: left;
-			}
-
-			ul {
-				text-align: left;
-			}
-
-			.cycling-grid {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				grid-gap: 2rem;
 			}
 		}
 
@@ -175,6 +145,15 @@
 		}
 	}
 
+	.plan-preview {
+		.preview-images {
+			align-items: flex-start;
+			margin-top: 5rem;
+			flex-direction: row;
+			gap: 4rem;
+		}
+	}
+
 	// KEMPY
 	.camps {
 		.camps-header {
@@ -185,8 +164,19 @@
 		.camps-grid {
 			grid-template-columns: 1fr 1fr 1fr;
 			grid-gap: 3rem;
-		}
 
+			a {
+				justify-content: flex-end;
+
+				h3 {
+					padding: 2rem;
+					font-size: 1.4rem;
+				}
+			}
+		}
+	}
+
+	.camp-page {
 		.camps-text {
 			text-align: left;
 			margin-top: 4rem;
@@ -203,15 +193,18 @@
 
 		.about-flex {
 			flex-direction: row;
-			align-items: center;
+			align-items: flex-start;
+			justify-content: flex-start;
 			gap: 6rem;
 
 			.section-heading {
 				.heading-span {
 					text-align: left;
+					font-size: 1.2rem;
 				}
 			}
 			h2 {
+				font-size: 3.1rem;
 				text-align: left;
 			}
 
@@ -220,31 +213,6 @@
 				margin-top: 4rem;
 				text-align: left;
 				font-size: 1.3rem;
-			}
-		}
-
-		.achievements {
-			padding: 3rem 1.5rem;
-			gap: 2.5rem;
-			grid-template-columns: 1fr 1fr 1fr 1fr;
-		}
-	}
-
-	// VOUCHER
-	.voucher {
-		.voucher-text {
-			font-size: 1.2rem;
-		}
-
-		.voucher-grid {
-			grid-template-columns: 1fr 1fr;
-			grid-gap: 4rem;
-
-			.voucher-form {
-				border-radius: 3rem 0 3rem 0;
-				font-size: 1.1rem;
-				padding: 3rem;
-				text-align: left;
 			}
 		}
 	}
@@ -304,6 +272,22 @@
 					font-size: 3rem;
 					margin-right: .75rem;
 				}
+			}
+		}
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	.navbar {
+		.nav-link {
+			margin-left: 1.5rem;
+		}
+	}
+
+	header {
+		.header-text {
+			h1 {
+				font-size: 6.5rem;
 			}
 		}
 	}
