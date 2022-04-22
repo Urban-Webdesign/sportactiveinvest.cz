@@ -40,6 +40,8 @@ class HomepagePresenter extends BasePresenter
     {
         $form = new Form();
 
+        $form->addHidden('protiBotum');
+
         $form->addText('name', 'Jméno a příjmení')
             ->addRule(Form::MAX_LENGTH, 'Maximální délka je %s znaků', 100)
             ->setRequired('Musíte zadat Vaše jméno a příjmení.');
@@ -58,31 +60,36 @@ class HomepagePresenter extends BasePresenter
             try {
                 $values = $form->getValues();
 
-                $mail = new Message();
+                if ($values['protiBotum'] === "") {
+                    $mail = new Message();
 
-                $vars = $this->configuration->getAllVars();
-                if (isset($vars['email']))
-                    $ownersEmail = $vars['email'];
-                else
-                    $ownersEmail = 'info@filipurban.cz';
+                    $vars = $this->configuration->getAllVars();
+                    if (isset($vars['email']))
+                        $ownersEmail = $vars['email'];
+                    else
+                        $ownersEmail = 'info@filipurban.cz';
 
-                $mail->setFrom($values['email'], $values['name'])
-                    ->addTo($ownersEmail)
-                    ->setSubject('Zpráva z kontaktního formuláře (luciesvecena.cz)')
-                    ->setBody($values['message']);
+                    $mail->setFrom($values['email'], $values['name'])
+                        ->addTo($ownersEmail)
+                        ->setSubject('Zpráva z kontaktního formuláře (sportactiveinvest.cz)')
+                        ->setBody($values['message']);
 
-                $parameters = Neon::decode(file_get_contents(__DIR__ . "/../../config/server/local.neon"));
+                    $parameters = Neon::decode(file_get_contents(__DIR__ . "/../../config/server/local.neon"));
 
-                $mailer = new SmtpMailer([
-                    'host' => $parameters['mail']['host'],
-                    'username' => $parameters['mail']['username'],
-                    'password' => $parameters['mail']['password'],
-                    'secure' => $parameters['mail']['secure'],
-                ]);
+                    $mailer = new SmtpMailer([
+                        'host' => $parameters['mail']['host'],
+                        'username' => $parameters['mail']['username'],
+                        'password' => $parameters['mail']['password'],
+                        'secure' => $parameters['mail']['secure'],
+                    ]);
 
-                $mailer->send($mail);
+                    $mailer->send($mail);
 
-                $this->flashMessage('Email byl úspěšně odeslán!', 'success');
+                    $this->flashMessage('Email byl úspěšně odeslán!', 'success');
+
+                } else {
+                    $this->flashMessage('Boti nic posílat nesmějí!', 'danger');
+                }
 
                 if ($this->isAjax()) {
                     $this->redrawControl('contactFlashes');
@@ -91,7 +98,6 @@ class HomepagePresenter extends BasePresenter
                 } else {
                     $this->redirect('this#kontakt');
                 }
-
             } catch (SmtpException $e) {
                 $this->flashMessage('Vaši zprávu se nepodařilo odeslat. Kontaktujte prosím správce webu na info@filipurban.cz', 'danger');
             }
