@@ -126,6 +126,11 @@ h3 {
 	font-weight: 700;
 }
 
+.btn-default {
+	background-color: $gray-200;
+	min-width: 100px;
+}
+
 .btn-lg {
 	font-weight: 700;
 }
@@ -379,11 +384,22 @@ header {
 
 			li {
 				margin-bottom: .5rem;
-				padding: .7rem 1rem;
-				color: $white;
-				font-size: 1.2rem;
-				font-weight: 500;
-				background: rgba($primary, .8);
+				a {
+					display: block;
+					padding: .7rem 1rem;
+					font-size: 1.2rem;
+					font-weight: 500;
+					background: rgba($primary, .8);
+					color: $white;
+					transition: all .2s ease-in-out;
+
+					&:hover {
+						text-decoration: unset;
+						color: $white;
+						background: rgba($primary, 1);
+						font-weight: 700;
+					}
+				}
 			}
 		}
 	}
@@ -527,6 +543,25 @@ header {
 		text-align: center;
 		margin-top: 3rem;
 		max-width: 450px;
+
+		p {
+			font-size: 1.1rem;
+			line-height: 150%;
+		}
+	}
+}
+
+.plan-page {
+	.plan-text {
+		text-align: center;
+		margin: 3rem 0;
+
+		ul, ol {
+			padding-left: 0;
+		}
+		li {
+			list-style-type: none;
+		}
 
 		p {
 			font-size: 1.1rem;
@@ -683,7 +718,6 @@ footer.main-footer {
 	bottom: 3%;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	font-size: .8rem;
 	transition: all .2s ease-in-out;
 
 	&:hover, &:focus {

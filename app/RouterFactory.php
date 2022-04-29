@@ -19,6 +19,7 @@ class RouterFactory
 
 		$router->withModule('Front')
             ->addRoute('[<lang=cs (cs)>/]', 'Homepage:default')
+            ->addRoute('[<lang=cs (cs)>/]treninkovy-plan/<slug>', 'Homepage:trainingPlan')
             ->addRoute('[<lang=cs (cs)>/]bezecke-kempy', 'Homepage:runningCamp')
             ->addRoute('[<lang=cs (cs)>/]triatlonove-kempy', 'Homepage:triathlonCamp')
             ->addRoute('[<lang=cs (cs)>/]cyklisticke-kempy', 'Homepage:cyclingCamp')

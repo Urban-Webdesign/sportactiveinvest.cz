@@ -24,6 +24,13 @@
 }
 
 @include media-breakpoint-up(lg) {
+	.scroll-down {
+		font-size: 1.2rem;
+
+		svg {
+			width: 25px;
+		}
+	}
 
 	section {
 		padding: 6rem 0;
@@ -180,6 +187,30 @@
 		.camps-text {
 			text-align: left;
 			margin-top: 4rem;
+
+			h3 {
+				text-align: left;
+			}
+		}
+	}
+
+	.plan-page {
+		.section-heading {
+			.heading-span { text-align: left}
+			h2 { text-align: left}
+		}
+
+		.plan-text {
+			text-align: left;
+			font-size: 1.2rem;
+			margin: 4rem 0;
+
+			ol ol {
+				padding-left: 2rem;
+			}
+			li li {
+				list-style-type: decimal;
+			}
 
 			h3 {
 				text-align: left;
