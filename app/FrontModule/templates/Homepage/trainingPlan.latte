@@ -1,0 +1,16 @@
+{block #content}
+<div class="subpage-header"></div>
+<section class="plan-page container">
+    <a n:href="Homepage:default#treninkove-plany" class="btn btn-default mb-5">Zpět</a>
+
+    <div class="section-heading">
+        <span class="heading-span">Tréninkový plán</span>
+        <h2>{$slug}</h2>
+    </div>
+
+    <div class="container mt-4 plan-text">
+        {box trainingPlan}
+    </div>
+
+    <a n:href="Homepage:default#kontakt" class="btn btn-success btn-lg mt-4">Chci začít trénovat podle plánu!</a>
+</section>

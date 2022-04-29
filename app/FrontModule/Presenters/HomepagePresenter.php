@@ -14,9 +14,32 @@ use Nette\Utils\Strings;
 
 class HomepagePresenter extends BasePresenter
 {
-	public function renderDefault(): void
-	{
-	}
+    public function renderDefault(): void
+    {
+    }
+
+    public function renderTrainingPlan(string $slug): void
+    {
+        switch ($slug) {
+            case ($slug === 'sprint'):
+                $this->template->slug = 'Sprint triatlon';
+                break;
+            case ($slug === 'olympijsky'):
+                $this->template->slug = 'Olympijský triatlon';
+                break;
+            case ($slug === '703ironman'):
+                $this->template->slug = '70.3 Ironman';
+                break;
+            case ($slug === 'silnicni-cyklistika'):
+                $this->template->slug = 'Silniční cyklistika';
+                break;
+            case ($slug === 'mtb'):
+                $this->template->slug = 'MTB';
+                break;
+            default:
+                $this->template->slug = ucfirst($slug);
+        }
+    }
 
     public function renderRunningCamps(): void
     {
